@@ -44,7 +44,7 @@ pub struct Link2 {
 #[serde(rename_all = "camelCase")]
 pub struct Field {
     pub name: String,
-    pub value: String,
+    pub value: Value,
 }
 
 async fn returns_json() -> Response {
@@ -63,7 +63,7 @@ async fn returns_json() -> Response {
         },
         Link {
             rel: String::from("next"),
-            href: String::from("http://test.de/iam/governance/selfservice/api/v1/provtasks?offset=3&limit=2&q=Status.Category+eq+Rejected"),
+            href: String::from("http://localhost:8000/users"),
         },
     ];
 
@@ -80,130 +80,202 @@ async fn returns_json() -> Response {
     let fields1 = vec![
         Field {
             name: String::from("Process Definition.Tasks.Task Name"),
-            value: String::from("Update Number"),
+            value: serde_json::Value::String(String::from("Update Number")),
         },
         Field {
             name: String::from("Process Instance.Task Information.Creation Date"),
-            value: String::from("2024-01-01T14:51:04Z"),
+            value: serde_json::Value::String(String::from("2024-01-01T14:51:04Z")),
         },
         Field {
             name: String::from("Process Instance.Task Details.Key"),
-            value: String::from("622482"),
+            value: serde_json::from_str("622482").unwrap(),
         },
         Field {
-            name: String::from("APP_INSTANCE_NAME"),
-            value: String::from("CAccount"),
+            name: String::from("Objects.Name"),
+            value: serde_json::Value::String(String::from("CAccount")),
+        },
+        Field {
+            name: String::from("APP_INSTANCE_KEY"),
+            value: serde_json::Value::String(String::from("CAccount")),
+        },
+        Field {
+            name: String::from("Process Instance.Task Information.Retry Task"),
+            value: serde_json::from_str("0").unwrap(),
+        },
+        Field {
+            name: String::from("Process Instance.Task Information.Target User"),
+            value: serde_json::Value::String(String::from("aauserid")),
         },
     ];
 
     let fields11 = vec![
         Field {
             name: String::from("Process Definition.Tasks.Task Name"),
-            value: String::from("Update Number"),
+            value: serde_json::Value::String(String::from("Update Number")),
         },
         Field {
             name: String::from("Process Instance.Task Information.Creation Date"),
-            value: String::from("2024-01-02T14:51:04Z"),
+            value: serde_json::Value::String(String::from("2024-01-02T14:51:04Z")),
         },
         Field {
             name: String::from("Process Instance.Task Details.Key"),
-            value: String::from("622483"),
+            value: serde_json::from_str("622483").unwrap(),
         },
         Field {
-            name: String::from("APP_INSTANCE_NAME"),
-            value: String::from("AAccount"),
+            name: String::from("Objects.Name"),
+            value: serde_json::Value::String(String::from("AAccount")),
+        },
+        Field {
+            name: String::from("APP_INSTANCE_KEY"),
+            value: serde_json::Value::String(String::from("CAccount")),
+        },
+        Field {
+            name: String::from("Process Instance.Task Information.Retry Task"),
+            value: serde_json::from_str("1").unwrap(),
+        },
+        Field {
+            name: String::from("Process Instance.Task Information.Target User"),
+            value: serde_json::Value::String(String::from("ttuserid")),
         },
     ];
 
     let fields12 = vec![
         Field {
             name: String::from("Process Definition.Tasks.Task Name"),
-            value: String::from("Create Number"),
+            value: serde_json::Value::String(String::from("Create Number")),
         },
         Field {
             name: String::from("Process Instance.Task Information.Creation Date"),
-            value: String::from("2024-01-03T14:51:04Z"),
+            value: serde_json::Value::String(String::from("2024-01-03T14:51:04Z")),
         },
         Field {
             name: String::from("Process Instance.Task Details.Key"),
-            value: String::from("622484"),
+            value: serde_json::from_str("622484").unwrap(),
         },
         Field {
-            name: String::from("APP_INSTANCE_NAME"),
-            value: String::from("BAccount"),
+            name: String::from("Objects.Name"),
+            value: serde_json::Value::String(String::from("BAccount")),
+        },
+        Field {
+            name: String::from("APP_INSTANCE_KEY"),
+            value: serde_json::Value::String(String::from("CAccount")),
+        },
+        Field {
+            name: String::from("Process Instance.Task Information.Retry Task"),
+            value: serde_json::from_str("0").unwrap(),
+        },
+        Field {
+            name: String::from("Process Instance.Task Information.Target User"),
+            value: serde_json::Value::String(String::from("aauserid")),
         },
     ];
     //
     let fields13 = vec![
         Field {
             name: String::from("Process Definition.Tasks.Task Name"),
-            value: String::from("Create Number"),
+            value: serde_json::Value::String(String::from("Create Number")),
         },
         Field {
             name: String::from("Process Instance.Task Information.Creation Date"),
-            value: String::from("2024-01-04T14:51:04Z"),
+            value: serde_json::Value::String(String::from("2024-01-04T14:51:04Z")),
         },
         Field {
             name: String::from("Process Instance.Task Details.Key"),
-            value: String::from("622485"),
+            value: serde_json::from_str("622485").unwrap(),
         },
         Field {
-            name: String::from("APP_INSTANCE_NAME"),
-            value: String::from("CAccount"),
+            name: String::from("Objects.Name"),
+            value: serde_json::Value::String(String::from("CAccount")),
+        },
+        Field {
+            name: String::from("APP_INSTANCE_KEY"),
+            value: serde_json::Value::String(String::from("CAccount")),
+        },
+        Field {
+            name: String::from("Process Instance.Task Information.Retry Task"),
+            value: serde_json::from_str("2").unwrap(),
+        },
+        Field {
+            name: String::from("Process Instance.Task Information.Target User"),
+            value: serde_json::Value::String(String::from("qquserid")),
         },
     ];
 
     let fields14 = vec![
         Field {
             name: String::from("Process Definition.Tasks.Task Name"),
-            value: String::from("Update Number"),
+            value: serde_json::Value::String(String::from("Update Number")),
         },
         Field {
             name: String::from("Process Instance.Task Information.Creation Date"),
-            value: String::from("2024-01-05T14:51:04Z"),
+            value: serde_json::Value::String(String::from("2024-01-05T14:51:04Z")),
         },
         Field {
             name: String::from("Process Instance.Task Details.Key"),
-            value: String::from("622486"),
+            value: serde_json::from_str("622486").unwrap(),
         },
         Field {
-            name: String::from("APP_INSTANCE_NAME"),
-            value: String::from("AAccount"),
+            name: String::from("Objects.Name"),
+            value: serde_json::Value::String(String::from("CAccount")),
+        },
+        Field {
+            name: String::from("APP_INSTANCE_KEY"),
+            value: serde_json::Value::String(String::from("CAccount")),
+        },
+        Field {
+            name: String::from("Process Instance.Task Information.Retry Task"),
+            value: serde_json::from_str("1").unwrap(),
+        },
+        Field {
+            name: String::from("Process Instance.Task Information.Target User"),
+            value: serde_json::Value::String(String::from("ttuserid")),
         },
     ];
 
     let fields2 = vec![
         Field {
             name: String::from("Process Definition.Tasks.Task Name"),
-            value: String::from("Update Number"),
+            value: serde_json::Value::String(String::from("Update Number")),
         },
         Field {
             name: String::from("Process Instance.Task Information.Creation Date"),
-            value: String::from("2023-03-23T14:51:04Z"),
+            value: serde_json::Value::String(String::from("2023-03-23T14:51:04Z")),
         },
         Field {
             name: String::from("Process Instance.Task Details.Key"),
-            value: String::from("622489"),
+            value: serde_json::from_str("622489").unwrap(),
         },
         Field {
             name: String::from("APP_INSTANCE_NAME"),
-            value: String::from("CAccount"),
+            value: serde_json::Value::String(String::from("CAccount")),
+        },
+        Field {
+            name: String::from("APP_INSTANCE_KEY"),
+            value: serde_json::Value::String(String::from("CAccount")),
+        },
+        Field {
+            name: String::from("Process Instance.Task Information.Retry Task"),
+            value: serde_json::from_str("0").unwrap(),
+        },
+        Field {
+            name: String::from("Process Instance.Task Information.Target User"),
+            value: serde_json::Value::String(String::from("aauserid")),
         },
     ];
 
     let fields3 = vec![Field {
         name: String::from("Process Instance.Task Information.Retry Task"),
-        value: String::from(""),
+        value: serde_json::Value::String(String::from("")),
     }];
     //Objects.Name  Process Instance.Descriptive Data Process Definition.Tasks.Task Name
     let fields4 = vec![Field {
         name: String::from("APP_INSTANCE_NAME"),
-        value: String::from(""),
+        value: serde_json::Value::String(String::from("")),
     }];
 
     let fields5 = vec![Field {
         name: String::from("Objects.Name"),
-        value: String::from("APP"),
+        value: serde_json::Value::String(String::from("APP")),
     }];
 
     let tasks = vec![
