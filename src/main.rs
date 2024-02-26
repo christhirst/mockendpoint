@@ -142,7 +142,7 @@ async fn returns_json() -> Response {
     let fields12 = vec![
         Field {
             name: String::from("Process Definition.Tasks.Task Name"),
-            value: serde_json::Value::String(String::from("Create Number")),
+            value: serde_json::Value::String(String::from("Update Number")),
         },
         Field {
             name: String::from("Process Instance.Task Information.Creation Date"),
@@ -154,7 +154,7 @@ async fn returns_json() -> Response {
         },
         Field {
             name: String::from("Objects.Name"),
-            value: serde_json::Value::String(String::from("BAccount")),
+            value: serde_json::Value::String(String::from("AAccount")),
         },
         Field {
             name: String::from("APP_INSTANCE_KEY"),
@@ -173,7 +173,7 @@ async fn returns_json() -> Response {
     let fields13 = vec![
         Field {
             name: String::from("Process Definition.Tasks.Task Name"),
-            value: serde_json::Value::String(String::from("Create Number")),
+            value: serde_json::Value::String(String::from("Update Number")),
         },
         Field {
             name: String::from("Process Instance.Task Information.Creation Date"),
@@ -185,11 +185,11 @@ async fn returns_json() -> Response {
         },
         Field {
             name: String::from("Objects.Name"),
-            value: serde_json::Value::String(String::from("CAccount")),
+            value: serde_json::Value::String(String::from("AAccount")),
         },
         Field {
             name: String::from("APP_INSTANCE_KEY"),
-            value: serde_json::Value::String(String::from("CAccount")),
+            value: serde_json::Value::String(String::from("AAccount")),
         },
         Field {
             name: String::from("Process Instance.Task Information.Retry Task"),
