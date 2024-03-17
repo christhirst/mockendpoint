@@ -63,7 +63,7 @@ async fn returns_json() -> Response {
         },
         Link {
             rel: String::from("next"),
-            href: String::from("http://localhost:8000/users"),
+            href: String::from("http://localhost:8000/users/te"),
         },
     ];
 
@@ -315,7 +315,7 @@ async fn returns_json() -> Response {
 async fn main() {
     println!("Hello, world!");
 
-    let app = Router::new().route("/users", get(returns_json));
+    let app = Router::new().route("/users/te", get(returns_json));
     let addr = SocketAddr::from(([127, 0, 0, 1], 8000));
     println!("listening on {}", addr);
     axum::Server::bind(&addr)
